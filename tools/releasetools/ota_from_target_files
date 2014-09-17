@@ -983,7 +983,7 @@ def main(argv):
     return True
 
   args = common.ParseOptions(argv, __doc__,
-                             extra_opts="b:k:i:d:wner:a:2",
+                             extra_opts="b:k:i:d:wne:ra:2",
                              extra_long_opts=["board_config=",
                                               "package_key=",
                                               "incremental_from=",

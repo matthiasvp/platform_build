@@ -25,6 +25,7 @@ _vendor_owner_whitelist := \
         imgtec \
         invensense \
         lge \
+        matthiasvp \
         nvidia \
         nxp \
         qcom \

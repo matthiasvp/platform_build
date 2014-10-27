@@ -34,6 +34,7 @@ PRODUCT_PACKAGES := \
     Provision \
     Settings \
     SystemUI \
+    TeleService \
     CalendarProvider \
     bluetooth-health \
     hostapd \
@@ -50,7 +51,6 @@ PRODUCT_PACKAGES := \
 #  MusicFX
 #  PrintSpooler
 #  QuickSearchBox
-#  TeleService
 
 
 PRODUCT_PACKAGES += \

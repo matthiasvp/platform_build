@@ -22,23 +22,27 @@
 PRODUCT_PACKAGES := \
     libfwdlockengine \
     OpenWnn \
-    PinyinIME \
     libWnnEngDic \
     libWnnJpnDic \
     libwnndict \
-    VideoEditor \
     WAPPushManager
+# Removed packages
+#
+# PinyinIME
+# VideoEditor
 
-PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    VisualizationWallpapers \
-    PhotoTable
+# Removed packages
+#
+# PRODUCT_PACKAGES += \
+#    Galaxy4 \
+#    HoloSpiralWallpaper \
+#    LiveWallpapers \
+#    LiveWallpapersPicker \
+#    MagicSmokeWallpapers \
+#    NoiseField \
+#    PhaseBeam \
+#    VisualizationWallpapers \
+#    PhotoTable
 
 # Additional settings used in all AOSP builds
 PRODUCT_PROPERTY_OVERRIDES := \

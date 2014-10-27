@@ -20,17 +20,19 @@
 # core_minimal.mk instead.
 
 PRODUCT_PACKAGES += \
-    BasicDreams \
-    Browser \
     Contacts \
     DocumentsUI \
     DownloadProviderUi \
     ExternalStorageProvider \
     KeyChain \
-    PicoTts \
     PacProcessor \
+    PicoTts \
     ProxyHandler \
     SharedStorageBackup \
     VpnDialogs
+
+# Removed packages
+# BasicDreams
+# Browser
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_base.mk)

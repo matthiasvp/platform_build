@@ -19,7 +19,8 @@
 
 PRODUCT_PACKAGES := \
     Dialer \
-    Mms \
     rild
 
+# Removed packages
+# Mms
 PRODUCT_COPY_FILES := \

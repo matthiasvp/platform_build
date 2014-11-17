@@ -20,19 +20,41 @@
 # core_minimal.mk instead.
 
 PRODUCT_PACKAGES += \
+    Calculator \
+    Calendar \
+    CalendarProvider \
+    CaptivePortalLogin \
+    CertInstaller \
     Contacts \
     DocumentsUI \
     DownloadProviderUi \
     ExternalStorageProvider \
+    FusedLocation \
+    InputDevices \
     KeyChain \
-    PacProcessor \
+    Keyguard \
+    LatinIME \
+    Launcher2 \
+    ManagedProvisioning \
     PicoTts \
+    PacProcessor \
+    libpac \
     ProxyHandler \
+    Settings \
     SharedStorageBackup \
-    VpnDialogs
+    Telecom \
+    TeleService \
+    VpnDialogs \
+    MmsService
 
 # Removed packages
+#
 # BasicDreams
 # Browser
+# DeskClock
+# Email
+# Exchange2
+# PrintSpooler
+# QuickSearchBox
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_base.mk)

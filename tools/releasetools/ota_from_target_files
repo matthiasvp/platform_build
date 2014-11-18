@@ -57,6 +57,10 @@ Usage:  ota_from_target_files [flags] input_target_files output_ota_package
   -e  (--extra_script)  <file>
       Insert the contents of file at the end of the update script.
 
+  -r  (--remove-recovery)
+      Remove the recovery from the OTA package
+      Cannot be used together with --block
+
   -a  (--aslr_mode)  <on|off>
       Specify whether to turn on ASLR for the package (on by default).
 
@@ -115,6 +119,7 @@ OPTIONS.patch_threshold = 0.95
 OPTIONS.wipe_user_data = False
 OPTIONS.omit_prereq = False
 OPTIONS.extra_script = None
+OPTIONS.remove_recovery = False
 OPTIONS.aslr_mode = True
 OPTIONS.worker_threads = multiprocessing.cpu_count() // 2
 if OPTIONS.worker_threads == 0:
@@ -570,7 +575,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   else:
     script.FormatPartition("/system")
     script.Mount("/system", recovery_mount_options)
-    if not has_recovery_patch:
+    if not has_recovery_patch and not OPTIONS.remove_recovery:
       script.UnpackPackageDir("recovery", "/system")
     script.UnpackPackageDir("system", "/system")
 
@@ -585,7 +590,8 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
       common.ZipWriteStr(output_zip, "recovery/" + fn, data)
       system_items.Get("system/" + fn, dir=False)
 
-    common.MakeRecoveryPatch(OPTIONS.input_tmp, output_sink,
+    if not OPTIONS.remove_recovery:
+      common.MakeRecoveryPatch(OPTIONS.input_tmp, output_sink,
                              recovery_img, boot_img)
 
     system_items.GetMetadata(input_zip)
@@ -1396,6 +1402,8 @@ def main(argv):
       OPTIONS.oem_source = a
     elif o in ("-e", "--extra_script"):
       OPTIONS.extra_script = a
+    elif o in ("-r", "--remove-recovery"):
+      OPTIONS.remove_recovery = True
     elif o in ("-a", "--aslr_mode"):
       if a in ("on", "On", "true", "True", "yes", "Yes"):
         OPTIONS.aslr_mode = True
@@ -1424,13 +1432,14 @@ def main(argv):
     return True
 
   args = common.ParseOptions(argv, __doc__,
-                             extra_opts="b:k:i:d:wne:t:a:2o:",
+                             extra_opts="b:k:i:d:wne:rt:a:2o:",
                              extra_long_opts=["board_config=",
                                               "package_key=",
                                               "incremental_from=",
                                               "wipe_user_data",
                                               "no_prereq",
                                               "extra_script=",
+                                              "remove_recovery"
                                               "worker_threads=",
                                               "aslr_mode=",
                                               "two_step",

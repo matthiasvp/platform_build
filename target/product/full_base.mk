@@ -53,9 +53,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
 # Put en_GB first in the list, so make it default.
 PRODUCT_LOCALES := en_GB
 
-# Include drawables for all densities
-PRODUCT_AAPT_CONFIG := normal
-
 # Get some sounds
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
 

@@ -41,12 +41,10 @@ PRODUCT_PACKAGES := \
 #    MagicSmokeWallpapers \
 #    NoiseField \
 #    PhaseBeam \
-#    VisualizationWallpapers \
 #    PhotoTable
 
 # Additional settings used in all AOSP builds
 PRODUCT_PROPERTY_OVERRIDES := \
-    ro.com.android.dateformat=dd-MM-yyyy \
     ro.config.ringtone=Ring_Synth_04.ogg \
     ro.config.notification_sound=pixiedust.ogg
 

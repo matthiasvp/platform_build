@@ -18,7 +18,9 @@
 # to products that have telephony hardware.
 
 PRODUCT_PACKAGES := \
+    CarrierConfig \
     Dialer \
+    CallLogBackup \
     rild
 
 # Removed packages

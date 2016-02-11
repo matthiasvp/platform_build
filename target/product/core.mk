@@ -29,6 +29,7 @@ PRODUCT_PACKAGES += \
     Contacts \
     DocumentsUI \
     DownloadProviderUi \
+    ExactCalculator \
     ExternalStorageProvider \
     FusedLocation \
     InputDevices \
